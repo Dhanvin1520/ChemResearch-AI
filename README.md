@@ -1,52 +1,96 @@
 # ChemResearch AI
 
-Autonomous Chemical Literature Intelligence & Research Assistant.
+**Autonomous chemical-literature intelligence.** Upload research papers, ask questions in natural language, and get **citation-grounded answers** — every claim is verified against the source before it reaches you.
 
-## Overview
-ChemResearch AI is a full-stack application that helps researchers investigate chemistry questions by searching scientific literature, retrieving relevant evidence, extracting structured chemical information, and generating citation-grounded answers.
+ChemResearch AI is a full-stack, agentic RAG system built for scientific R&D. It ingests chemistry PDFs, retrieves the right evidence with a hybrid search stack, runs a multi-agent reasoning pipeline, and refuses to state anything it can't attribute to a source. It ships with a 50-item evaluation harness so answer quality is measured, not assumed.
+
+---
+
+## Why it's different
+
+Most literature tools do embed-and-retrieve. ChemResearch AI adds the two things that actually matter for research use:
+
+- **Citation verification / anti-hallucination** — a dedicated agent checks every claim in the generated answer against the retrieved evidence and flags unsupported statements, with a per-claim confidence score. No silent hallucinations.
+- **Measured quality** — a built-in benchmark of 50 chemistry research questions scores retrieval (Recall@k, Precision@k, MAP, MRR, nDCG@k), extraction (entity precision/recall/F1), and answer faithfulness + citation accuracy.
+
+---
 
 ## Architecture
-- **Backend:** FastAPI, SQLAlchemy (PostgreSQL), Neo4j driver
-- **Machine Learning:** Sentence-Transformers (FAISS), Cross-Encoders, LangChain (OpenAI)
-- **Chemistry Engine:** RDKit (Molecules, Properties, SVG generation, Reactions)
-- **Frontend:** React, TypeScript, Vite, custom premium dark theme CSS
 
-## Features
-1. **Literature Ingestion Pipeline:** Processes PDFs into semantic chunks, avoiding mid-reaction splits.
-2. **Hybrid Search Architecture:** FAISS Semantic Search + BM25 Keyword Search + Cross-Encoder Reranking.
-3. **Agentic Workflow (LangGraph):** Planner -> Literature Agent -> Chemistry Agent -> Evidence Extractor -> Reasoning Agent -> Citation Verifier.
-4. **Chemistry Toolkit:** RDKit-powered molecule validation, property computation, functional group detection, and SVG rendering.
-5. **Knowledge Graph (Neo4j):** Tracks relationships between papers, molecules, reactions, and conditions.
-6. **Built-in Evaluation:** 50 chemistry research benchmarks to evaluate extraction F1, citation accuracy, and retrieval metrics.
+**Retrieval — hybrid, then reranked**
+- Semantic search (Sentence-Transformers `all-MiniLM-L6-v2` → FAISS)
+- Keyword search (BM25) with catalyst / solvent / year filters
+- Fused via **Reciprocal Rank Fusion**, then reranked with a cross-encoder (`ms-marco-MiniLM-L-6-v2`)
 
-## Running Locally
+**Agentic reasoning pipeline**
+```
+Query Planner → Literature Agent → Chemistry Agent → Evidence Extractor → Reasoning Agent → Citation Verifier
+```
 
-### Using Docker Compose
+**Chemistry engine (RDKit)**
+- Molecule validation, property computation, functional-group detection, SVG rendering
+- Reaction parsing and entity extraction (molecules, catalysts, solvents, conditions)
+
+**Knowledge graph (MongoDB)**
+- Links papers ↔ molecules ↔ reactions ↔ conditions; surfaces co-mentioned compounds and relationships
+
+**Ingestion**
+- PDF parsing with chemistry-aware chunking that avoids splitting mid-reaction
+
+**Stack**
+- Backend: FastAPI, MongoDB, LangGraph, LangChain
+- ML: Sentence-Transformers, FAISS, cross-encoder reranking
+- Chemistry: RDKit
+- Frontend: React, TypeScript, Vite
+
+---
+
+## Running locally
+
+### Docker Compose
 ```bash
 docker-compose up --build
 ```
-The frontend will be available at http://localhost:5173, the backend API at http://localhost:8000.
+Frontend: http://localhost:5173 · API: http://localhost:8000 · API docs: http://localhost:8000/docs
 
-### Native Development
-1. **Database:** Ensure PostgreSQL (port 5432) and Neo4j (port 7687) are running.
-2. **Backend:** 
-   ```bash
-   cd backend
-   python -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
-   # Set OPENAI_API_KEY environment variable for LLM features
-   uvicorn app.main:app --reload
-   ```
-3. **Frontend:**
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
+### Native
+**Backend**
+```bash
+cd backend
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+export OPENAI_API_KEY=...   # optional: enables LLM reasoning + LLM-based citation verification
+uvicorn app.main:app --reload
+```
+Requires a running MongoDB (default `mongodb://localhost:27017/`). Without an API key the system falls back to heuristic reasoning and citation checks, so it runs end-to-end offline.
 
-## Workflow Guide
-1. Go to the "Papers" tab and upload PDF research papers.
-2. Go to the "Research" tab and ask chemistry questions.
-3. Use the "Evaluation" tab to run benchmarks.
-4. Check the "Graph" tab to see the Neo4j knowledge network.
+**Frontend**
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## Configuration
+
+Key settings (`backend/app/config.py`, overridable via `.env`):
+
+| Setting | Default | Purpose |
+|---|---|---|
+| `retrieval_top_k` | 20 | Candidates pulled before reranking |
+| `rerank_top_k` | 8 | Passages kept after cross-encoder |
+| `semantic_weight` / `keyword_weight` | 0.6 / 0.4 | Hybrid fusion balance |
+| `chunk_size` / `chunk_overlap` | 512 / 50 | Ingestion chunking |
+| `embedding_model` | `all-MiniLM-L6-v2` | Dense retrieval |
+| `reranker_model` | `cross-encoder/ms-marco-MiniLM-L-6-v2` | Reranking |
+
+---
+
+## Using it
+
+1. **Papers** — upload PDF research papers to ingest them.
+2. **Research** — ask a chemistry question; get a cited answer with an evidence panel.
+3. **Evaluation** — run the 50-question benchmark and view retrieval / extraction / faithfulness metrics.
+4. **Graph** — explore the molecule–reaction–paper knowledge network.
