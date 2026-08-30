@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "question": "What catalysts have been reported for Suzuki coupling reactions?",
+    "expected_entities": {"catalysts": ["Pd(PPh3)4", "Pd(dppf)Cl2", "Pd(OAc)2"], "reactions": ["Suzuki Coupling"]},
+    "expected_keywords": ["palladium", "cross-coupling", "boronic acid"]
+  },
+  {
+    "id": 2,
+    "question": "What solvents are commonly used in Grignard reactions?",
+    "expected_entities": {"solvents": ["THF", "Diethyl ether"], "reactions": ["Grignard Reaction"]},
+    "expected_keywords": ["grignard", "organomagnesium", "ether"]
+  },
+  {
+    "id": 3,
+    "question": "What is the typical temperature range for Heck reactions?",
+    "expected_entities": {"reactions": ["Heck Reaction"], "temperatures": ["80-150°C"]},
+    "expected_keywords": ["heck", "palladium", "alkene"]
+  },
+  {
+    "id": 4,
+    "question": "What is the molecular weight and formula of aspirin?",
+    "expected_entities": {"molecules": ["aspirin"]},
+    "expected_keywords": ["aspirin", "acetylsalicylic", "molecular weight"]
+  },
+  {
+    "id": 5,
+    "question": "Compare the yields of Suzuki coupling using different palladium catalysts",
+    "expected_entities": {"catalysts": ["Pd(PPh3)4", "Pd(dppf)Cl2"], "reactions": ["Suzuki Coupling"]},
+    "expected_keywords": ["yield", "palladium", "suzuki", "catalyst"]
+  },
+  {
+    "id": 6,
+    "question": "What conditions are used for Buchwald-Hartwig amination?",
+    "expected_entities": {"reactions": ["Buchwald-Hartwig Amination"], "catalysts": ["Pd2(dba)3"]},
+    "expected_keywords": ["buchwald", "hartwig", "amination", "palladium"]
+  },
+  {
+    "id": 7,
+    "question": "What functional groups are present in caffeine?",
+    "expected_entities": {"molecules": ["caffeine"]},
+    "expected_keywords": ["caffeine", "functional groups", "amide", "aromatic"]
+  },
+  {
+    "id": 8,
+    "question": "What are the typical conditions for olefin metathesis?",
+    "expected_entities": {"reactions": ["Olefin Metathesis"], "catalysts": ["Grubbs"]},
+    "expected_keywords": ["metathesis", "grubbs", "carbene"]
+  },
+  {
+    "id": 9,
+    "question": "Which solvents and catalysts are used for Sonogashira coupling?",
+    "expected_entities": {"reactions": ["Sonogashira Coupling"], "catalysts": ["Pd(PPh3)2Cl2", "CuI"]},
+    "expected_keywords": ["sonogashira", "alkyne", "copper"]
+  },
+  {
+    "id": 10,
+    "question": "What is the SMILES representation of ibuprofen?",
+    "expected_entities": {"molecules": ["ibuprofen"]},
+    "expected_keywords": ["ibuprofen", "smiles"]
+  },
+  {
+    "id": 11,
+    "question": "What Lewis acids catalyze Friedel-Crafts reactions?",
+    "expected_entities": {"reactions": ["Friedel-Crafts Reaction"], "catalysts": ["AlCl3", "BF3"]},
+    "expected_keywords": ["friedel-crafts", "lewis acid", "electrophilic"]
+  },
+  {
+    "id": 12,
+    "question": "What are the properties of DMF as a solvent?",
+    "expected_entities": {"molecules": ["DMF"], "solvents": ["N,N-Dimethylformamide"]},
+    "expected_keywords": ["dmf", "dimethylformamide", "solvent"]
+  },
+  {
+    "id": 13,
+    "question": "What conditions favor high yield in aldol condensation?",
+    "expected_entities": {"reactions": ["Aldol Condensation"]},
+    "expected_keywords": ["aldol", "yield", "enolate", "base"]
+  },
+  {
+    "id": 14,
+    "question": "Compare the similarity between aspirin and ibuprofen molecules",
+    "expected_entities": {"molecules": ["aspirin", "ibuprofen"]},
+    "expected_keywords": ["aspirin", "ibuprofen", "similarity"]
+  },
+  {
+    "id": 15,
+    "question": "What is the mechanism of the Diels-Alder reaction?",
+    "expected_entities": {"reactions": ["Diels-Alder Reaction"]},
+    "expected_keywords": ["diels-alder", "cycloaddition", "diene", "dienophile"]
+  },
+  {
+    "id": 16,
+    "question": "What palladium catalysts are used in cross-coupling reactions?",
+    "expected_entities": {"catalysts": ["Pd(PPh3)4", "Pd(OAc)2", "Pd2(dba)3"]},
+    "expected_keywords": ["palladium", "cross-coupling", "catalyst"]
+  },
+  {
+    "id": 17,
+    "question": "What is the molecular formula of glucose?",
+    "expected_entities": {"molecules": ["glucose"]},
+    "expected_keywords": ["glucose", "formula", "C6H12O6"]
+  },
+  {
+    "id": 18,
+    "question": "What reducing agents are commonly used in organic synthesis?",
+    "expected_entities": {"catalysts": ["NaBH4", "LiAlH4", "DIBAL-H"]},
+    "expected_keywords": ["reducing agent", "reduction", "hydride"]
+  },
+  {
+    "id": 19,
+    "question": "What bases are used in Williamson ether synthesis?",
+    "expected_entities": {"reactions": ["Williamson Ether Synthesis"], "catalysts": ["NaH", "KOH"]},
+    "expected_keywords": ["williamson", "ether", "alkoxide", "base"]
+  },
+  {
+    "id": 20,
+    "question": "What are the functional groups in penicillin G?",
+    "expected_entities": {"molecules": ["penicillin g"]},
+    "expected_keywords": ["penicillin", "beta-lactam", "functional groups"]
+  },
+  {
+    "id": 21,
+    "question": "What conditions are used for Fischer esterification?",
+    "expected_entities": {"reactions": ["Fischer Esterification"], "catalysts": ["H2SO4"]},
+    "expected_keywords": ["fischer", "esterification", "acid", "alcohol"]
+  },
+  {
+    "id": 22,
+    "question": "What is the similarity between benzene and toluene?",
+    "expected_entities": {"molecules": ["benzene", "toluene"]},
+    "expected_keywords": ["benzene", "toluene", "aromatic", "similarity"]
+  },
+  {
+    "id": 23,
+    "question": "What solvents are used in Wittig reactions?",
+    "expected_entities": {"reactions": ["Wittig Reaction"], "solvents": ["THF"]},
+    "expected_keywords": ["wittig", "ylide", "solvent", "thf"]
+  },
+  {
+    "id": 24,
+    "question": "What are the molecular properties of cholesterol?",
+    "expected_entities": {"molecules": ["cholesterol"]},
+    "expected_keywords": ["cholesterol", "molecular weight", "logp"]
+  },
+  {
+    "id": 25,
+    "question": "What transition metal catalysts are used for C-N bond formation?",
+    "expected_entities": {"catalysts": ["Pd2(dba)3", "Pd(OAc)2"], "reactions": ["Buchwald-Hartwig Amination"]},
+    "expected_keywords": ["c-n bond", "amination", "palladium", "copper"]
+  },
+  {
+    "id": 26,
+    "question": "What is the boiling point range of common organic solvents?",
+    "expected_entities": {"solvents": ["Dichloromethane", "Tetrahydrofuran", "N,N-Dimethylformamide"]},
+    "expected_keywords": ["solvent", "boiling point", "organic"]
+  },
+  {
+    "id": 27,
+    "question": "How does temperature affect yield in Suzuki coupling?",
+    "expected_entities": {"reactions": ["Suzuki Coupling"]},
+    "expected_keywords": ["temperature", "yield", "suzuki", "optimization"]
+  },
+  {
+    "id": 28,
+    "question": "What ligands improve Pd-catalyzed cross-coupling selectivity?",
+    "expected_entities": {"catalysts": ["BINAP", "XPhos", "SPhos"]},
+    "expected_keywords": ["ligand", "selectivity", "palladium", "phosphine"]
+  },
+  {
+    "id": 29,
+    "question": "What is the TPSA and LogP of dopamine?",
+    "expected_entities": {"molecules": ["dopamine"]},
+    "expected_keywords": ["dopamine", "tpsa", "logp", "polar surface area"]
+  },
+  {
+    "id": 30,
+    "question": "What copper catalysts are used in click chemistry?",
+    "expected_entities": {"catalysts": ["CuI", "CuBr"]},
+    "expected_keywords": ["copper", "click", "azide", "alkyne", "CuAAC"]
+  },
+  {
+    "id": 31,
+    "question": "What are common protecting groups for amines?",
+    "expected_entities": {},
+    "expected_keywords": ["protecting group", "amine", "boc", "fmoc", "cbz"]
+  },
+  {
+    "id": 32,
+    "question": "What asymmetric catalysts give high ee in aldol reactions?",
+    "expected_entities": {"reactions": ["Aldol Condensation"], "catalysts": ["Proline"]},
+    "expected_keywords": ["asymmetric", "enantioselective", "ee", "aldol"]
+  },
+  {
+    "id": 33,
+    "question": "Convert nicotine to SMILES and show its properties",
+    "expected_entities": {"molecules": ["nicotine"]},
+    "expected_keywords": ["nicotine", "smiles", "properties"]
+  },
+  {
+    "id": 34,
+    "question": "What reaction types involve formation of C-C bonds?",
+    "expected_entities": {"reactions": ["Suzuki Coupling", "Heck Reaction"]},
+    "expected_keywords": ["c-c bond", "cross-coupling", "carbon-carbon"]
+  },
+  {
+    "id": 35,
+    "question": "What green chemistry approaches exist for Suzuki coupling?",
+    "expected_entities": {"reactions": ["Suzuki Coupling"]},
+    "expected_keywords": ["green chemistry", "suzuki", "water", "aqueous", "sustainable"]
+  },
+  {
+    "id": 36,
+    "question": "What is the ring count and aromatic character of naphthalene?",
+    "expected_entities": {"molecules": ["naphthalene"]},
+    "expected_keywords": ["naphthalene", "aromatic", "ring"]
+  },
+  {
+    "id": 37,
+    "question": "What oxidizing agents are used for alcohol to aldehyde conversion?",
+    "expected_entities": {},
+    "expected_keywords": ["oxidation", "alcohol", "aldehyde", "swern", "dess-martin", "pcc"]
+  },
+  {
+    "id": 38,
+    "question": "Compare DMF and DMSO as polar aprotic solvents",
+    "expected_entities": {"solvents": ["N,N-Dimethylformamide", "Dimethyl sulfoxide"]},
+    "expected_keywords": ["dmf", "dmso", "polar aprotic", "comparison"]
+  },
+  {
+    "id": 39,
+    "question": "What conditions favor E2 elimination over SN2 substitution?",
+    "expected_entities": {},
+    "expected_keywords": ["e2", "elimination", "sn2", "substitution", "base", "temperature"]
+  },
+  {
+    "id": 40,
+    "question": "What are the molecular descriptors of vitamin C?",
+    "expected_entities": {"molecules": ["ascorbic acid"]},
+    "expected_keywords": ["vitamin c", "ascorbic acid", "descriptors"]
+  },
+  {
+    "id": 41,
+    "question": "What heterogeneous catalysts are used for hydrogenation?",
+    "expected_entities": {"catalysts": ["Pd/C", "Pt/C", "PtO2", "Raney Ni"]},
+    "expected_keywords": ["heterogeneous", "hydrogenation", "catalyst", "palladium", "platinum"]
+  },
+  {
+    "id": 42,
+    "question": "What is the difference between Grubbs 1st and 2nd generation catalysts?",
+    "expected_entities": {"catalysts": ["Grubbs"], "reactions": ["Olefin Metathesis"]},
+    "expected_keywords": ["grubbs", "generation", "metathesis", "NHC"]
+  },
+  {
+    "id": 43,
+    "question": "What functional groups make a molecule a good drug candidate?",
+    "expected_entities": {},
+    "expected_keywords": ["drug", "lipinski", "functional groups", "bioavailability"]
+  },
+  {
+    "id": 44,
+    "question": "What Pd catalysts work at room temperature for cross-coupling?",
+    "expected_entities": {"catalysts": ["Pd(PPh3)4"]},
+    "expected_keywords": ["room temperature", "palladium", "cross-coupling", "mild conditions"]
+  },
+  {
+    "id": 45,
+    "question": "What is the molecular weight of morphine and its functional groups?",
+    "expected_entities": {"molecules": ["morphine"]},
+    "expected_keywords": ["morphine", "molecular weight", "functional groups"]
+  },
+  {
+    "id": 46,
+    "question": "What inert atmospheres are required for air-sensitive reactions?",
+    "expected_entities": {},
+    "expected_keywords": ["inert atmosphere", "nitrogen", "argon", "schlenk", "glovebox"]
+  },
+  {
+    "id": 47,
+    "question": "What is the number of hydrogen bond donors and acceptors in serotonin?",
+    "expected_entities": {"molecules": ["serotonin"]},
+    "expected_keywords": ["serotonin", "hydrogen bond", "donor", "acceptor"]
+  },
+  {
+    "id": 48,
+    "question": "What radical initiators are used in polymerization reactions?",
+    "expected_entities": {},
+    "expected_keywords": ["radical", "initiator", "polymerization", "AIBN", "peroxide"]
+  },
+  {
+    "id": 49,
+    "question": "What chiral auxiliaries give high diastereoselectivity?",
+    "expected_entities": {},
+    "expected_keywords": ["chiral auxiliary", "diastereoselectivity", "evans", "oppolzer"]
+  },
+  {
+    "id": 50,
+    "question": "What are the solubility properties of citric acid?",
+    "expected_entities": {"molecules": ["citric acid"]},
+    "expected_keywords": ["citric acid", "solubility", "water", "polar"]
+  }
+]
