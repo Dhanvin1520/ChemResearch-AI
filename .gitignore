@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+venv/
+.venv/
+env/
+
+# Environment
+.env
+.env.*
+*.local
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# Runtime data & generated artifacts
+backend/data/bm25_index/
+backend/data/faiss_index/
+backend/data/evaluation_results/
+backend/data/uploads/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+!backend/data/uploads/.gitkeep
