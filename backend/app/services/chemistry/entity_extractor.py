@@ -128,13 +128,13 @@ CATALYST_PATTERNS = [
 ]
 
 TEMPERATURE_PATTERNS = [
-    r"(-?\d+(?:\.\d+)?)\s*[°ºo]\s*C",
-    r"(-?\d+(?:\.\d+)?)\s*°?\s*[Cc]elsius",
-    r"(-?\d+(?:\.\d+)?)\s*K(?:\b|elvin)",
+    r"(-?\d+(?:\.\d+)?)\s*-\s*(-?\d+(?:\.\d+)?)\s*[°ºo]\s*C",
+    r"(?<![\d.\-])(-?\d+(?:\.\d+)?)\s*[°ºo]\s*C",
+    r"(?<![\d.\-])(-?\d+(?:\.\d+)?)\s*°?\s*[Cc]elsius",
+    r"(?<![\d.\-])(-?\d+(?:\.\d+)?)\s*K(?:\b|elvin)",
     r"room\s*temp(?:erature)?",
     r"rt\b",
     r"reflux",
-    r"(-?\d+)\s*-\s*(-?\d+)\s*[°ºo]\s*C",
     r"ambient\s*temp(?:erature)?",
     r"heating\s*(?:at|to)\s*(-?\d+)",
     r"cooled?\s*(?:to|at)\s*(-?\d+)",
