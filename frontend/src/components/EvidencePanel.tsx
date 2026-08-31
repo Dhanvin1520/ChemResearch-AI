@@ -49,7 +49,7 @@ export default function EvidencePanel({ evidence, citations }: EvidencePanelProp
                     <div className="evidence-title">{ev.paper_title}</div>
                     <span className="evidence-section-tag">{ev.section}</span>
                   </div>
-                  <div className="evidence-badge">[{i + 1}] {(ev.relevance_score * 100).toFixed(0)}%</div>
+                  <div className="evidence-badge">[{i + 1}] {(100 / (1 + Math.exp(-ev.relevance_score))).toFixed(0)}%</div>
                 </div>
 
                 <div className="evidence-content">
